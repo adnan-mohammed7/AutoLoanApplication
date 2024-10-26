@@ -4,7 +4,7 @@ public class User {
 	String userName;
 	String password;
 	
-	User(String name, String pwd){
+	public User(String name, String pwd){
 		//No user validation is done as these are hard coded
 		this.userName = name;
 		this.password = pwd;

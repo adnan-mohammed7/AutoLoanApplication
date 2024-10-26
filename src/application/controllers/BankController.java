@@ -1,5 +1,6 @@
 package application.controllers;
 
+import application.models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -24,29 +25,41 @@ public class BankController {
 
     @FXML
     private TextField visiblePasswordField;
+    
+    @FXML
+    public void initialize() {
+    	User userOne = new User("Adnan", "12345");
+    	User userTwo = new User("Saad", "YorkRegion");
+    	
+    	visiblePasswordField.textProperty().bind(passwordField.textProperty());
+    }
 
     @FXML
     void login(ActionEvent event) {
-    	Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("ADNAN");
-        alert.setHeaderText(null);
-        alert.setContentText("BRO CODE");
-        alert.showAndWait();
+    	
     }
 
     @FXML
     void showPassword(ActionEvent event) {
     	if(showCheckbox.isSelected()) {
-    		// Show the password in the visible text field
-            visiblePasswordField.setText(passwordField.getText());
             visiblePasswordField.setVisible(true);
             passwordField.setVisible(false);
     	}else {
-    		// Switch back to the password field
-            passwordField.setText(visiblePasswordField.getText());
             passwordField.setVisible(true);
             visiblePasswordField.setVisible(false);
     	}
+    }
+    
+    void checkUserCredentials(String username, String password) {
+    	
+    }
+    
+    void showAlert() {
+    	Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("ADNAN");
+        alert.setHeaderText(null);
+        alert.setContentText("BRO CODE");
+        alert.showAndWait();
     }
 
 }
