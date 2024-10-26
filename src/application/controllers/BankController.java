@@ -3,11 +3,16 @@ package application.controllers;
 import application.models.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class BankController {
 
@@ -26,17 +31,26 @@ public class BankController {
     @FXML
     private TextField visiblePasswordField;
     
+    private User[] users;
+    private User userTwo;
+    
     @FXML
     public void initialize() {
-    	User userOne = new User("Adnan", "12345");
-    	User userTwo = new User("Saad", "YorkRegion");
+    	users = new User[2];
+    	users[0] = new User("Adnan", "Seneca");
+    	users[1] = new User("Saad", "York");
     	
     	visiblePasswordField.textProperty().bind(passwordField.textProperty());
     }
 
     @FXML
     void login(ActionEvent event) {
-    	
+    	if(checkUserCredentials(usernameField.getText(), passwordField.getText())) {
+    		openAutoLoan();
+    	}else {
+    		usernameField.setText("");
+    		passwordField.setText("");
+    	}
     }
 
     @FXML
@@ -50,16 +64,40 @@ public class BankController {
     	}
     }
     
-    void checkUserCredentials(String username, String password) {
-    	
+    boolean checkUserCredentials(String username, String password) {
+    	for(User a : users) {
+    		if(a.getUserName().equals(username) && a.getPassword().equals(password)) {
+    			return true;
+    		}else if(a.getUserName().equals(username) && !(a.getPassword().equals(password))) {
+    			showAlert("Invaid Password!");
+    			return false;
+    		}
+    	}
+    	showAlert("User does not exist!");
+    	return false;
     }
     
-    void showAlert() {
-    	Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("ADNAN");
+    void showAlert(String message) {
+    	Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Invalid User Credentials");
         alert.setHeaderText(null);
-        alert.setContentText("BRO CODE");
-        alert.showAndWait();
+        alert.setContentText(message);
+        
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-font-size: 20px; -fx-padding: 20px;");
+        
+        alert.show();
     }
-
+    
+    void openAutoLoan() {
+    	try { 
+			BorderPane root = (BorderPane)FXMLLoader.load((getClass().getResource("/application/views/AutoLoan.fxml")));
+			Scene scene = new Scene(root);
+			Stage primaryStage = (Stage) submitBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+    }
 }
