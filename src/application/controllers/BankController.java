@@ -57,9 +57,7 @@ public class BankController {
     void showPassword(ActionEvent event) {
     	if(showCheckbox.isSelected()) {
             visiblePasswordField.setVisible(true);
-            passwordField.setVisible(false);
     	}else {
-            passwordField.setVisible(true);
             visiblePasswordField.setVisible(false);
     	}
     }
@@ -95,6 +93,9 @@ public class BankController {
 			Scene scene = new Scene(root);
 			Stage primaryStage = (Stage) submitBtn.getScene().getWindow();
 			primaryStage.setScene(scene);
+			primaryStage.setMaximized(true);
+			primaryStage.setResizable(false);
+			primaryStage.setTitle("Auto Loan App");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -13,7 +13,9 @@ public class Main extends Application {
 		try {
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("views/Bank.fxml"));
 			Scene scene = new Scene(root,600,600);
+			primaryStage.setTitle("Login");
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
