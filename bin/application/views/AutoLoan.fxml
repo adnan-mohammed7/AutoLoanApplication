@@ -49,7 +49,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="nameField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -69,7 +69,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="phoneField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -89,7 +89,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="cityField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -109,7 +109,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 50;" HBox.hgrow="ALWAYS">
+                  <ChoiceBox fx:id="provinceField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 50;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
@@ -121,12 +121,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 35;" HBox.hgrow="ALWAYS">
+                  <ChoiceBox fx:id="typeField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 35;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="15.0" />
                      </HBox.margin>
                   </ChoiceBox>
-                  <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 35;" HBox.hgrow="ALWAYS">
+                  <ChoiceBox fx:id="ageField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 35;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -143,7 +143,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="340.0" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="priceField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="340.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="35.0" />
                      </font>
@@ -163,7 +163,7 @@
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="103.0" prefWidth="340.0" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="downPayField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="103.0" prefWidth="340.0" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="35.0" />
                      </font>
@@ -180,12 +180,12 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="172.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" text="0.99%" VBox.vgrow="ALWAYS">
+                        <RadioButton fx:id="oneInterest" mnemonicParsing="false" text="0.99%" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="1.99%" VBox.vgrow="ALWAYS">
+                        <RadioButton fx:id="twoInterest" mnemonicParsing="false" text="1.99%" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="30.0" />
                            </font>
@@ -194,19 +194,19 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="172.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" text="2.99%" VBox.vgrow="ALWAYS">
+                        <RadioButton fx:id="threeInterest" mnemonicParsing="false" text="2.99%" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Others" VBox.vgrow="ALWAYS">
+                        <RadioButton fx:id="fourInterest" mnemonicParsing="false" text="Others" VBox.vgrow="ALWAYS">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </RadioButton>
                      </children>
                   </VBox>
-                  <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="340.0" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="otherInterestField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="340.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="15.0" top="15.0" />
                      </HBox.margin>
@@ -228,13 +228,13 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Slider majorTickUnit="12.0" max="96.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="12.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-font-size: 25;" />
+                        <Slider fx:id="monthsField" majorTickUnit="12.0" max="96.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="12.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" style="-fx-font-size: 25;" />
                      </children>
                      <HBox.margin>
                         <Insets right="15.0" />
                      </HBox.margin>
                   </VBox>
-                  <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 35;" HBox.hgrow="ALWAYS">
+                  <ChoiceBox fx:id="frequencyField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 35;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
@@ -257,12 +257,12 @@
             </TextField>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Clear" HBox.hgrow="ALWAYS">
+                  <Button fx:id="clearBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clear" text="Clear" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Calculate" HBox.hgrow="ALWAYS">
+                  <Button fx:id="calculateBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#calculate" text="Calculate" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="27.0" />
                      </font>
@@ -270,12 +270,12 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Save" HBox.hgrow="ALWAYS">
+                  <Button fx:id="saveBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#save" text="Save" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Button>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Show Saved" HBox.hgrow="ALWAYS">
+                  <Button fx:id="showSavedBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showSaved" text="Show Saved" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="27.0" />
                      </font>
