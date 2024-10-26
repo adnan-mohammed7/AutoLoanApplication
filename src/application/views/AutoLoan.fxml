@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.AutoLoanController">
    <top>
       <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Auto Loan App" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER">
          <font>
@@ -104,12 +104,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="220.0" text="Province">
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="95.0" prefWidth="90.0" text="Province" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="provinceField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 50;" HBox.hgrow="ALWAYS">
+                  <ChoiceBox fx:id="provinceField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="390.0" style="-fx-font-size: 50;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets top="10.0" />
                      </HBox.margin>
@@ -234,7 +234,7 @@
                         <Insets right="15.0" />
                      </HBox.margin>
                   </VBox>
-                  <ChoiceBox fx:id="frequencyField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 35;" HBox.hgrow="ALWAYS">
+                  <ChoiceBox fx:id="frequencyField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-font-size: 25;" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
@@ -244,7 +244,7 @@
                   <Insets bottom="15.0" />
                </GridPane.margin>
             </HBox>
-            <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextField fx:id="display" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <padding>
                   <Insets bottom="15.0" />
                </padding>

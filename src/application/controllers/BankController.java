@@ -36,9 +36,10 @@ public class BankController {
     
     @FXML
     public void initialize() {
-    	users = new User[2];
+    	users = new User[3];
     	users[0] = new User("Adnan", "Seneca");
     	users[1] = new User("Saad", "York");
+    	users[2] = new User("", "");
     	
     	visiblePasswordField.textProperty().bind(passwordField.textProperty());
     }
