@@ -10,10 +10,10 @@ public class LoanApplication extends Person {
 	double interest;
 	int numOfMonths;
 	String frequency;
-	double monthlyPay;
+	double pay;
 	
 	public LoanApplication(String type, String age, double price, double downPay, double interest,
-			int numOfMonths, String freqency, double monthlyPay, String name, int num, String city, String province) {
+			int numOfMonths, String freqency, double pay, String name, long num, String city, String province) {
 		this.setName(name);
 		this.setPhone(num);
 		this.setCity(city);
@@ -25,7 +25,7 @@ public class LoanApplication extends Person {
 		this.interest = interest;
 		this.numOfMonths = numOfMonths;
 		this.frequency = freqency;
-		this.monthlyPay = monthlyPay;
+		this.pay = pay;
 	}
 	
 	public String getType() {
@@ -70,10 +70,10 @@ public class LoanApplication extends Person {
 	public void setFrequency(String frequency) {
 		this.frequency = frequency;
 	}
-	public double getMonthlyPay() {
-		return monthlyPay;
+	public double getPay() {
+		return pay;
 	}
-	public void setMonthlyPay(double monthlyPay) {
-		this.monthlyPay = monthlyPay;
+	public void setPay(double monthlyPay) {
+		this.pay = monthlyPay;
 	}
 }

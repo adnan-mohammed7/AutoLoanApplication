@@ -2,7 +2,7 @@ package application.abstractClasses;
 
 public abstract class Person {
 	String name;
-	int Phone;
+	long Phone;
 	String City;
 	String Province;
 	public String getName() {
@@ -11,10 +11,10 @@ public abstract class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPhone() {
+	public long getPhone() {
 		return Phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(long phone) {
 		Phone = phone;
 	}
 	public String getCity() {
