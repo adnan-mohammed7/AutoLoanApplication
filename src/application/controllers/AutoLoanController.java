@@ -7,19 +7,27 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import application.models.LoanApplication;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Labeled;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 
 public class AutoLoanController {
@@ -93,7 +101,9 @@ public class AutoLoanController {
     List<TextField> vehicleFields;
     List<String> emptyFields;
     List<ChoiceBox<String>> choices;
-    List<LoanApplication> applications;
+    List<LoanApplication> storedList;
+    LoanApplication tempApplication;
+    ListView<LoanApplication> loanListView;
     
     String mName, mCity, mProvince, mType, mAge, mFrequency; 
     int mMonths;
@@ -106,7 +116,7 @@ public class AutoLoanController {
     	vehicleFields = Arrays.asList(priceField, downPayField);
     	choices = Arrays.asList(provinceField, typeField, ageField);
     	emptyFields = new ArrayList<String>();
-    	applications = new ArrayList<LoanApplication>();
+    	storedList = new ArrayList<LoanApplication>();
     	
     	ageField.getItems().addAll("New", "Old");
     	ageField.setValue("Select Vehicle Age");
@@ -139,6 +149,7 @@ public class AutoLoanController {
                 	otherInterestField.setVisible(true);
                 }else {
                 	otherInterestField.setVisible(false);
+                	otherInterestField.setText("");
                 }
             }
         });
@@ -146,9 +157,26 @@ public class AutoLoanController {
         monthsField.valueProperty().addListener((obs, oldValue, newValue) -> {
             int months = newValue.intValue();
             paymentDisplay.setText("" + months);
+            mMonths = months;
         });
         
         display.setEditable(false);
+        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
+        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
+        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
+        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
+        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
+        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
+        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
+        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
+        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
+        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
+        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
+        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
+        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
+        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
+        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
+        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
     }
 
     @FXML
@@ -216,7 +244,9 @@ public class AutoLoanController {
     	interestGroup.selectToggle(null);
     	monthsField.setValue(12);
     	frequencyField.setValue("Select Payment Frequency");
+    	paymentDisplay.setText("Payment Period");
     	display.setText("");
+    	tempApplication = null;
     }
 
     @FXML
@@ -230,15 +260,94 @@ public class AutoLoanController {
         	clearEmptyList();
     	}else {
     		if(validateCredentials()) {
-    			setValues();
-    			applications.add(new LoanApplication(mType, mAge, mPrice, mDown, mInterest, mMonths, mFrequency, calculate(event), mName, mPhone, mCity, mProvince));
+    			if(tempApplication == null) {
+    				setValues();
+        			double calculatedPay = calculate(event);
+        			storedList.add(new LoanApplication(mType, mAge, mPrice, mDown, mInterest, mMonths, mFrequency, calculatedPay, mName, mPhone, mCity, mProvince));
+    			}else {
+    				LoanApplication selected = loanListView.getSelectionModel().getSelectedItem();
+    				loadSelectedApplication(selected, tempApplication);
+    			}
+    			clear(event);
     		}
     	}   	
     }
 
     @FXML
     void showSaved(ActionEvent event) {
-
+    	loanListView = new ListView<>();
+    	loanListView.setItems(FXCollections.observableArrayList(storedList));
+    	
+    	Dialog<Void> dialog = new Dialog<Void>();
+    	dialog.setTitle("Select Loan Application");
+    	
+    	DialogPane dialogPane= dialog.getDialogPane(); 
+    	dialogPane.setPrefSize(700, 700);
+    	
+    	VBox box = new VBox(loanListView);
+    	box.setStyle("-fx-font-size: 45");
+    	dialogPane.setContent(box);
+    	dialogPane.getButtonTypes().addAll(ButtonType.OK);
+    	Node bt = dialogPane.lookupButton(ButtonType.OK);
+    	bt.setStyle("-fx-font-size: 45");
+    	
+    	loanListView.setOnMouseClicked(e -> {
+    	    if (e.getButton() == MouseButton.PRIMARY && e.getClickCount() == 2 && loanListView.getSelectionModel().getSelectedItem() != null) {
+    	    	loadSelectedApplication(loanListView.getSelectionModel().getSelectedItem(), dialog);
+    	    }
+    	});
+    	dialog.show();
+    }
+    
+    void loadSelectedApplication(LoanApplication selected, LoanApplication temp) {
+    	selected.setName(temp.getName());
+    	selected.setCity(temp.getCity());
+    	selected.setProvince(temp.getProvince());
+    	selected.setType(temp.getType());
+    	selected.setAge(temp.getAge());
+    	selected.setFrequency(temp.getFrequency());
+    	selected.setPay(calculate(null));
+    	
+    	setValues();
+    	selected.setPhone(mPhone);
+    	selected.setPrice(mPrice);
+    	selected.setDownPay(mDown);
+    	selected.setInterest(mInterest);
+    	selected.setNumOfMonths(mMonths);
+    }
+    
+    void loadSelectedApplication(LoanApplication loan, Dialog<Void> dialog) {
+    	tempApplication = new LoanApplication(loan.getType(), loan.getAge(), loan.getPrice(),
+    			loan.getDownPay(), loan.getInterest(), loan.getNumOfMonths(), loan.getFrequency(),
+    			loan.getPay(), loan.getName(), loan.getPhone(), loan.getCity(), loan.getProvince());
+    	nameField.textProperty().bindBidirectional((tempApplication.nameProperty()));
+    	cityField.textProperty().bindBidirectional(tempApplication.cityProperty());
+    	
+    	provinceField.setValue(tempApplication.getProvince());
+    	typeField.setValue(tempApplication.getType());
+    	ageField.setValue(tempApplication.getAge());
+    	frequencyField.setValue(tempApplication.getFrequency());
+    	
+    	tempApplication.provinceProperty().bindBidirectional(provinceField.valueProperty());
+    	tempApplication.typeProperty().bindBidirectional(typeField.valueProperty());
+    	tempApplication.ageProperty().bindBidirectional(ageField.valueProperty());
+    	tempApplication.frequencyProperty().bindBidirectional(frequencyField.valueProperty());
+    	
+    	phoneField.setText(Long.toString(tempApplication.getPhone()));
+    	priceField.setText(Double.toString(tempApplication.getPrice()));
+    	downPayField.setText(Double.toString(tempApplication.getDownPay()));
+    	if(tempApplication.getInterest() == 0.99) {
+    		oneInterest.setSelected(true);
+    	}else if(tempApplication.getInterest() == 1.99) {
+    		twoInterest.setSelected(true);
+    	}else if(tempApplication.getInterest() == 2.99) {
+    		threeInterest.setSelected(true);
+    	}else{
+    		fourInterest.setSelected(true);
+    		otherInterestField.setText(Double.toString(tempApplication.getInterest()));
+    	}
+    	monthsField.setValue(tempApplication.getNumOfMonths());
+    	paymentDisplay.setText("" + tempApplication.getNumOfMonths());
     }
     
     private void validateCustomerTextFields() {
