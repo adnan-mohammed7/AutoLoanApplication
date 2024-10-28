@@ -1,3 +1,15 @@
+/**********************************************
+Workshop #3
+Course:APD 545 - Semester 5
+Last Name: Mohammed
+First Name: Adnan
+ID: 174731216
+Section: ZAA
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature
+Date: 28th October 2024
+**********************************************/
+
 package application.controllers;
 
 import application.models.User;
@@ -14,7 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class BankController {
+public class Login {
 
     @FXML
     private PasswordField passwordField;
@@ -36,10 +48,9 @@ public class BankController {
     
     @FXML
     public void initialize() {
-    	users = new User[3];
+    	users = new User[2];
     	users[0] = new User("Adnan", "Seneca");
     	users[1] = new User("Saad", "York");
-    	users[2] = new User("", "");
     	
     	visiblePasswordField.textProperty().bind(passwordField.textProperty());
     }

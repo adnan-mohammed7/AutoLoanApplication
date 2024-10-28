@@ -1,3 +1,15 @@
+/**********************************************
+Workshop #3
+Course:APD 545 - Semester 5
+Last Name: Mohammed
+First Name: Adnan
+ID: 174731216
+Section: ZAA
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature
+Date: 28th October 2024
+**********************************************/
+
 package application.models;
 
 import application.models.Person;

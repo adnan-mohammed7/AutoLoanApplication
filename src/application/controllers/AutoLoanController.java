@@ -1,3 +1,15 @@
+/**********************************************
+Workshop #3
+Course:APD 545 - Semester 5
+Last Name: Mohammed
+First Name: Adnan
+ID: 174731216
+Section: ZAA
+This assignment represents my own work in accordance with Seneca Academic Policy.
+Signature
+Date: 28th October 2024
+**********************************************/
+
 package application.controllers;
 
 import java.text.DecimalFormat;
@@ -161,22 +173,6 @@ public class AutoLoanController {
         });
         
         display.setEditable(false);
-        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
-        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
-        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
-        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
-        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
-        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
-        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
-        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
-        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
-        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
-        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
-        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
-        storedList.add(new LoanApplication("Car", "New", 5000.00, 1000.00, 0.99, 12,
-        		"Monthly", 100.0, "Adnan", 9057816529L, "Scarborough", "Ontario"));
-        storedList.add(new LoanApplication("Truck", "Old", 12000.00, 2000.00, 3.99, 36,
-        		"Bi-Weekly", 200.0, "Saad", 6474377075L, "Toronto", "Alberta"));
     }
 
     @FXML
@@ -293,46 +289,50 @@ public class AutoLoanController {
     	
     	loanListView.setOnMouseClicked(e -> {
     	    if (e.getButton() == MouseButton.PRIMARY && e.getClickCount() == 2 && loanListView.getSelectionModel().getSelectedItem() != null) {
-    	    	loadSelectedApplication(loanListView.getSelectionModel().getSelectedItem(), dialog);
+    	    	loadSelectionDialogBox(loanListView.getSelectionModel().getSelectedItem(), dialog);
     	    }
     	});
     	dialog.show();
     }
     
     void loadSelectedApplication(LoanApplication selected, LoanApplication temp) {
+    	//Binded
     	selected.setName(temp.getName());
     	selected.setCity(temp.getCity());
     	selected.setProvince(temp.getProvince());
     	selected.setType(temp.getType());
     	selected.setAge(temp.getAge());
     	selected.setFrequency(temp.getFrequency());
-    	selected.setPay(calculate(null));
     	
+    	//Non-Binded
     	setValues();
     	selected.setPhone(mPhone);
     	selected.setPrice(mPrice);
     	selected.setDownPay(mDown);
     	selected.setInterest(mInterest);
     	selected.setNumOfMonths(mMonths);
+    	selected.setPay(calculate(null));
     }
     
-    void loadSelectedApplication(LoanApplication loan, Dialog<Void> dialog) {
+    void loadSelectionDialogBox(LoanApplication loan, Dialog<Void> dialog) {
     	tempApplication = new LoanApplication(loan.getType(), loan.getAge(), loan.getPrice(),
     			loan.getDownPay(), loan.getInterest(), loan.getNumOfMonths(), loan.getFrequency(),
     			loan.getPay(), loan.getName(), loan.getPhone(), loan.getCity(), loan.getProvince());
-    	nameField.textProperty().bindBidirectional((tempApplication.nameProperty()));
-    	cityField.textProperty().bindBidirectional(tempApplication.cityProperty());
-    	
+    	    	
     	provinceField.setValue(tempApplication.getProvince());
     	typeField.setValue(tempApplication.getType());
     	ageField.setValue(tempApplication.getAge());
     	frequencyField.setValue(tempApplication.getFrequency());
     	
+    	//Binded
+    	nameField.textProperty().bindBidirectional((tempApplication.nameProperty()));
+    	cityField.textProperty().bindBidirectional(tempApplication.cityProperty());
     	tempApplication.provinceProperty().bindBidirectional(provinceField.valueProperty());
     	tempApplication.typeProperty().bindBidirectional(typeField.valueProperty());
     	tempApplication.ageProperty().bindBidirectional(ageField.valueProperty());
     	tempApplication.frequencyProperty().bindBidirectional(frequencyField.valueProperty());
     	
+    	//Non-Binded
     	phoneField.setText(Long.toString(tempApplication.getPhone()));
     	priceField.setText(Double.toString(tempApplication.getPrice()));
     	downPayField.setText(Double.toString(tempApplication.getDownPay()));
