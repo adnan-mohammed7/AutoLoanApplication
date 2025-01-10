@@ -332,6 +332,7 @@ public class AutoLoanController {
     	tempApplication.ageProperty().bindBidirectional(ageField.valueProperty());
     	tempApplication.frequencyProperty().bindBidirectional(frequencyField.valueProperty());
     	
+    	
     	//Non-Binded
     	phoneField.setText(Long.toString(tempApplication.getPhone()));
     	priceField.setText(Double.toString(tempApplication.getPrice()));
