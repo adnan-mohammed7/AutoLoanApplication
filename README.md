@@ -6,6 +6,14 @@ In today’s fast-paced financial world, efficient loan processing is crucial fo
 
 This project showcases expertise in **Java application development, financial modeling, object-oriented programming (OOP), and real-time data validation**. Designed for **banking and financial institutions**, it automates calculations, helping customers make informed decisions.
 
+This project highlights expertise in:
+
+- **Financial Algorithms & Loan Calculations** – Implements standard financial formulas for precise loan computations.
+- **Data Validation & Error Prevention** – Ensures reliable data entry and prevents calculation errors.
+- **JavaFX-Based UI Design** – Clean, structured, and interactive user interface.
+- **Database-Driven Systems** – Uses MySQL to persist loan application data.
+- **Software Engineering Best Practices** – Implements structured OOP, exception handling, and scalable design.
+
 ## 🏦 Key Features
 
 - **Automated Loan Calculation** – Computes **weekly, bi-weekly, or monthly** payments based on loan amount, interest rate, and term.
@@ -19,16 +27,6 @@ This project showcases expertise in **Java application development, financial mo
 ## 🌍 Real-World Impact
 
 Loan miscalculations can lead to **financial losses** and poor decision-making. This system ensures **accuracy in loan computations**, eliminating human errors while allowing **banks and credit institutions to offer better financial transparency**. With **dynamic payment schedules and instant feedback**, this application provides a **seamless digital loan processing experience** for customers.
-
-## 💡 Why This Project Stands Out
-
-This project highlights expertise in:
-
-- **Financial Algorithms & Loan Calculations** – Implements standard financial formulas for precise loan computations.
-- **Data Validation & Error Prevention** – Ensures reliable data entry and prevents calculation errors.
-- **JavaFX-Based UI Design** – Clean, structured, and interactive user interface.
-- **Database-Driven Systems** – Uses MySQL to persist loan application data.
-- **Software Engineering Best Practices** – Implements structured OOP, exception handling, and scalable design.
 
 ## 💻 Technologies Used
 
