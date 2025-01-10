@@ -14,7 +14,12 @@ A **JavaFX-based Auto Loan Calculator** designed for bank clerks to calculate lo
 ✅ **Error Handling & Alerts** – Ensures smooth user experience.
 
 ## 📷 Screenshots
-_(Add screenshots of Login Page & Loan Calculation Page here)_
+![Screenshot (68)](https://github.com/user-attachments/assets/9502e35d-e5f1-47f6-bbd8-512533cfd072)
+![Screenshot (69)](https://github.com/user-attachments/assets/8a1a6a4d-67d0-443f-a9d3-1d005b80aece)
+![Screenshot (71)](https://github.com/user-attachments/assets/3e21c438-ab44-4441-b08e-c5a6a3681753)
+![Screenshot (70)](https://github.com/user-attachments/assets/5e34a261-bca8-4465-844f-9a7cdad86df9)
+
+
 
 ## 💻 Technologies Used
 - **Java 17+**
