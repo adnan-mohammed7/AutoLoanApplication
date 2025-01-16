@@ -76,10 +76,6 @@ java --module-path "path-to-javafx-lib" --add-modules javafx.controls,javafx.fxm
 
 ![Screenshot (70)](https://github.com/user-attachments/assets/5e34a261-bca8-4465-844f-9a7cdad86df9)
 
-## 📜 License
-
-This project is released under the **MIT License**, allowing free use and modification with proper attribution.
-
 ---
 
 🚀 **Developed by Adnan Mohammed**
