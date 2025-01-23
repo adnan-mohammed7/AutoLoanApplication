@@ -1,4 +1,4 @@
-# Bank Loan Application 💰📊
+# Auto Loan Application 💰📊
 
 ## 📌 Project Overview
 
