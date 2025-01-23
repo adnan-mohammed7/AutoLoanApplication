@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 
-In today’s fast-paced financial world, efficient loan processing is crucial for both banks and customers. This **Bank Loan Application** provides a streamlined system to calculate auto loan payments, ensuring accuracy and transparency in financial decisions. Built using **JavaFX and MySQL**, it offers a **user-friendly interface** for clerks to process loan applications efficiently while reducing errors.
+In today’s fast-paced financial world, efficient loan processing is crucial for both banks and customers. This **Auto Loan Application** provides a streamlined system to calculate auto loan payments, ensuring accuracy and transparency in financial decisions. Built using **JavaFX and MySQL**, it offers a **user-friendly interface** for clerks to process loan applications efficiently while reducing errors.
 
 This project showcases expertise in **Java application development, financial modeling, object-oriented programming (OOP), and real-time data validation**. Designed for **banking and financial institutions**, it automates calculations, helping customers make informed decisions.
 
